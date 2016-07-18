@@ -7,19 +7,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ifrn.meutcc.logica.TemasLogic;
-import br.ifrn.meutcc.modelo.Tema;
+import br.ifrn.meutcc.logica.AlunoLogic;
 
-@WebServlet("/ViewTema")
-public class ViewTema extends HttpServlet {
+@WebServlet("/ViewCandidaturas")
+public class ViewCandidaturas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	public ViewTema() {
-		super();
-	}
+       
+    public ViewCandidaturas() {
+        super();
+    }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// Recuperar o id do tema
 		String id = request.getParameter("id");
 		int idTema = -1;
 		try {
@@ -27,10 +25,10 @@ public class ViewTema extends HttpServlet {
 		} catch (NumberFormatException nfex) {
 			nfex.printStackTrace();
 		}
-		TemasLogic logic = new TemasLogic();
-		Tema tema = logic.getTema(idTema);
-		request.setAttribute("tema", tema);
-		request.getRequestDispatcher("viewTema.jsp").forward(request, response);
+		AlunoLogic logic = new AlunoLogic();
+		int aluno = logic.countCandidatos(idTema);
+		request.setAttribute("aluno", aluno);
+		request.getRequestDispatcher("viewCandidaturas.jsp").forward(request, response);
 	}
 
 }
