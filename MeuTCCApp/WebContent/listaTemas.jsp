@@ -14,7 +14,10 @@
 	if (temas != null && !temas.isEmpty()) {
 		for(Tema t: temas) {
 			out.println("<li><a href=\"/MeuTCC/ViewTema?id="+t.getId()+
-							"\">["+t.getId()+"] "+t.getTitulo()+"</a>.</li>");
+							"\">["+t.getId()+"] "+t.getTitulo()+"</a> - <a href=\"/MeuTCC/ViewAluno?id="+t.getId()+
+							"\">Candidatar-se</a> - <a href=\"/MeuTCC/ViewCandidaturas?id="+t.getId()+
+							"\">Lista de Candidaturas</a> - <a href=\"/MeuTCC/ViewOrientadorTema?id="+t.getId()+
+							"\">Orientador</a></li>");
 		}
 	} else {
 		out.println("<li>Nenhum tema cadastrado para o referido curso!</li>");

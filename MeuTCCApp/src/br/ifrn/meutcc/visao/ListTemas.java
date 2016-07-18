@@ -19,6 +19,7 @@ public class ListTemas extends HttpServlet {
 	public ListTemas() {
 		super();
 	}
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Recuperar o identificador do curso
 		String curso = request.getParameter("idCurso");
