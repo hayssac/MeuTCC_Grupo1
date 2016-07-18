@@ -9,7 +9,7 @@
 <link href="css/materialize.min.css" rel="stylesheet" />
 </head>
 <body>
-	<nav class="light-blue lighten-1" role="navigation">
+	<nav class="light-blue cyan darken-4" role="navigation">
     	<div class="nav-wrapper container"><a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
     	</div>
 	</nav>
@@ -21,9 +21,9 @@
 			if (temas != null && !temas.isEmpty()) {
 				for(Tema t: temas) {					
 					out.println("<li><a class=\"waves-effect waves-light btn\" href=\"/MeuTCC/ViewTema?id="+t.getId()+
-							"\">["+t.getId()+"] "+t.getTitulo()+"</a> : <a class=\"waves-effect blue lighten-4 btn\" href=\"/MeuTCC/ViewAluno?id="+t.getId()+
-							"\">Candidatar-se</a> <a class=\"waves-effect orange lighten-4 btn\" href=\"/MeuTCC/ViewCandidaturas?id="+t.getId()+
-							"\">Lista de Candidaturas</a> <a class=\"waves-effect red lighten-3 btn\" href=\"/MeuTCC/ViewOrientadorTema?id="+t.getId()+
+							"\">["+t.getId()+"] "+t.getTitulo()+"</a> : <a class=\"btn waves-effect teal lighten-4\" href=\"/MeuTCC/ViewAluno?id="+t.getId()+
+							"\">Candidatar-se</a> <a class=\"btn waves-effect teal lighten-4 \" href=\"/MeuTCC/ViewCandidaturas?id="+t.getId()+
+							"\">Lista de Candidaturas</a> <a class=\"btn waves-effect teal lighten-4 \" href=\"/MeuTCC/ViewOrientadorTema?id="+t.getId()+
 							"\">Orientador</a></li>");
 				}
 				} else {

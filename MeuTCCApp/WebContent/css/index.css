@@ -13,3 +13,7 @@ body {
 .quadro ul li {
 	margin-bottom: 10px;
 }
+
+.quadro ul li a:hover {
+	background-color: #CCCCCC !important;
+}
