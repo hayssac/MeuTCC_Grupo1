@@ -6,7 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Orientador Tema</title>
 <link href="css/index.css" rel="stylesheet" />
-<link href="css/materialize.min.css" rel="stylesheet" />
+<link href="css/materialize.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
@@ -29,6 +29,7 @@
 	}
 	%>
 	</div>
-<script src="js/materialize.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js" type="text/javascript"></script>
 </body>
 </html>
