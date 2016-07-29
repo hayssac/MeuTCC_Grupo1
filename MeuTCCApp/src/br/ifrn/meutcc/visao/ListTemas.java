@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ifrn.meutcc.logica.TemasLogic;
 import br.ifrn.meutcc.modelo.Tema;
 
 @WebServlet("/ListTemas")
@@ -29,7 +28,7 @@ public class ListTemas extends HttpServlet {
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
-		TemasLogic logic = new TemasLogic();
+		Tema logic = new Tema();
 		List<Tema> temas = logic.listTemas(idCurso);
 		request.setAttribute("temas", temas);
 		request.getRequestDispatcher("listaTemas.jsp").forward(request, response);

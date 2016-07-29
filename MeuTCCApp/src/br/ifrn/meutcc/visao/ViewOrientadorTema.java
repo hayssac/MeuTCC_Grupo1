@@ -7,7 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ifrn.meutcc.logica.OrientadorLogic;
 import br.ifrn.meutcc.modelo.Orientador;
 
 @WebServlet("/ViewOrientadorTema")
@@ -26,7 +25,7 @@ public class ViewOrientadorTema extends HttpServlet {
 		} catch (NumberFormatException nfex) {
 			nfex.printStackTrace();
 		}
-		OrientadorLogic logic = new OrientadorLogic();
+		Orientador logic = new Orientador();
 		Orientador orientador = logic.getOrientadorPorTema(idTema);
 		request.setAttribute("orientador", orientador);
 		request.getRequestDispatcher("viewOrientador.jsp").forward(request, response);

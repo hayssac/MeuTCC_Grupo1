@@ -5,24 +5,37 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Meu TCC</title>
+<link href="css/index.css" rel="stylesheet" />
+<link href="css/materialize.min.css" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-<h1>Listagem dos Temas Disponíveis para TCC</h1>
-<ol>
-<%
-	List<Tema> temas = (List<Tema>) request.getAttribute("temas");
-	if (temas != null && !temas.isEmpty()) {
-		for(Tema t: temas) {
-			out.println("<li><a href=\"/MeuTCC/ViewTema?id="+t.getId()+
-							"\">["+t.getId()+"] "+t.getTitulo()+"</a> - <a href=\"/MeuTCC/ViewAluno?id="+t.getId()+
-							"\">Candidatar-se</a> - <a href=\"/MeuTCC/ViewCandidaturas?id="+t.getId()+
-							"\">Lista de Candidaturas</a> - <a href=\"/MeuTCC/ViewOrientadorTema?id="+t.getId()+
-							"\">Orientador</a></li>");
-		}
-	} else {
-		out.println("<li>Nenhum tema cadastrado para o referido curso!</li>");
-	}
-%>
-</ol>
+	<nav class="light-blue cyan darken-4" role="navigation">
+    	<div class="nav-wrapper container"><a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
+    	</div>
+	</nav>
+	<div class="container quadro">
+		<h3 class="header center grey-text">Listagem dos Temas Disponíveis para TCC</h3>
+		<ul>
+		<%
+			List<Tema> temas = (List<Tema>) request.getAttribute("temas");
+			if (temas != null && !temas.isEmpty()) {
+				for(Tema t: temas) {					
+					out.println("<li class=\"card-panel hoverable\"><a class=\"waves-effect waves-light btn\" href=\"/MeuTCC/ViewTema?id="+t.getId()+
+							"\">["+t.getId()+"] "+t.getTitulo()+"</a> : <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewAluno?id="+t.getId()+
+							"\">Candidatar-se</a> <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewCandidaturas?id="+t.getId()+
+							"\">Lista de Candidaturas</a> <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewOrientadorTema?id="+t.getId()+
+							"\">Orientador Tema</a></li>");
+				}
+				} else {
+					out.println("<li>Nenhum tema cadastrado para o referido curso!</li>");
+			}
+		%>
+	</ul>
+</div>
+
+
+
+<script src="js/materialize.min.js" type="text/javascript"></script>
 </body>
 </html>
