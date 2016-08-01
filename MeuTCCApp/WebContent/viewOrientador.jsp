@@ -11,7 +11,7 @@
 </head>
 <body>
 	<nav class="light-blue cyan darken-4" role="navigation">
-     	<div class="nav-wrapper container"><a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
+    	<div class="nav-wrapper container"><a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
     	</div>
 	</nav>
 	<div class="container quadro">
@@ -29,7 +29,6 @@
 	}
 	%>
 	</div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js" type="text/javascript"></script>
 </body>
 </html>

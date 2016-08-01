@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ifrn.meutcc.logica.TemasLogic;
 import br.ifrn.meutcc.modelo.Tema;
 
 @WebServlet("/ListTemas")
@@ -23,13 +22,13 @@ public class ListTemas extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Recuperar o identificador do curso
 		String curso = request.getParameter("idCurso");
-		int idCurso = 1;
+		int idCurso = 3; //No caso do banco de Hayssa, que estava com registros antigos
 		try {
 			idCurso = Integer.parseInt(curso);
 		} catch (NumberFormatException e) {
 			e.printStackTrace();
 		}
-		TemasLogic logic = new TemasLogic();
+		Tema logic = new Tema();
 		List<Tema> temas = logic.listTemas(idCurso);
 		request.setAttribute("temas", temas);
 		request.getRequestDispatcher("listaTemas.jsp").forward(request, response);

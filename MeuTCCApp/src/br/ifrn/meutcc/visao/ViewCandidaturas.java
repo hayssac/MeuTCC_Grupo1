@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ifrn.meutcc.logica.AlunoLogic;
+import br.ifrn.meutcc.modelo.Aluno;
 
 @WebServlet("/ViewCandidaturas")
 public class ViewCandidaturas extends HttpServlet {
@@ -25,7 +25,7 @@ public class ViewCandidaturas extends HttpServlet {
 		} catch (NumberFormatException nfex) {
 			nfex.printStackTrace();
 		}
-		AlunoLogic logic = new AlunoLogic();
+		Aluno logic = new Aluno();
 		int aluno = logic.countCandidatos(idTema);
 		request.setAttribute("aluno", aluno);
 		request.getRequestDispatcher("viewCandidaturas.jsp").forward(request, response);

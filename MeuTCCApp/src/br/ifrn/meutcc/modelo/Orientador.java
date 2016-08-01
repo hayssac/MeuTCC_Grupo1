@@ -1,5 +1,6 @@
 package br.ifrn.meutcc.modelo;
 
+import br.ifrn.meutcc.persistencia.FabricaDAO;
 import br.ifrn.meutcc.persistencia.OrientadorDAO;
 
 public class Orientador {
@@ -9,7 +10,7 @@ public class Orientador {
 	
 	public Orientador(){
 		super();
-		dao = new OrientadorDAO();
+		dao = FabricaDAO.getInstancia("mysql").createOrientadorDAO();
 	}
 	
 	public int getId() {

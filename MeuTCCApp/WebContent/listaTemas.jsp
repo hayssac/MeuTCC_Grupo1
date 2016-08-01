@@ -21,11 +21,11 @@
 			List<Tema> temas = (List<Tema>) request.getAttribute("temas");
 			if (temas != null && !temas.isEmpty()) {
 				for(Tema t: temas) {					
-					out.println("<li><a class=\"waves-effect waves-light btn\" href=\"/MeuTCC/ViewTema?id="+t.getId()+
-							"\">["+t.getId()+"] "+t.getTitulo()+"</a> : <a class=\"btn waves-effect teal lighten-4\" href=\"/MeuTCC/ViewAluno?id="+t.getId()+
-							"\">Candidatar-se</a> <a class=\"btn waves-effect teal lighten-4 \" href=\"/MeuTCC/ViewCandidaturas?id="+t.getId()+
-							"\">Lista de Candidaturas</a> <a class=\"btn waves-effect teal lighten-4 \" href=\"/MeuTCC/ViewOrientadorTema?id="+t.getId()+
-							"\">Orientador</a></li>");
+					out.println("<li class=\"card-panel hoverable\"><a class=\"waves-effect waves-light btn\" href=\"/MeuTCC/ViewTema?id="+t.getId()+
+							"\">["+t.getId()+"] "+t.getTitulo()+"</a> : <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewAluno?id="+t.getId()+
+							"\">Candidatar-se</a> <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewCandidaturas?id="+t.getId()+
+							"\">Lista de Candidaturas</a> <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewOrientadorTema?id="+t.getId()+
+							"\">Orientador Tema</a></li>");
 				}
 				} else {
 					out.println("<li>Nenhum tema cadastrado para o referido curso!</li>");
@@ -33,7 +33,9 @@
 		%>
 	</ul>
 </div>
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+
+
 <script src="js/materialize.js" type="text/javascript"></script>
 </body>
 </html>
