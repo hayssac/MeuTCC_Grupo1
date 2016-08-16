@@ -28,7 +28,7 @@ public class ViewCandidaturas extends HttpServlet {
 		Aluno logic = new Aluno();
 		int aluno = logic.countCandidatos(idTema);
 		request.setAttribute("aluno", aluno);
-		request.getRequestDispatcher("viewCandidaturas.jsp").forward(request, response);
+		request.getRequestDispatcher("viewTemaCandidaturas.jsp").forward(request, response);
 	}
 
 }

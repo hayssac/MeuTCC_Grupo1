@@ -7,28 +7,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import br.ifrn.meutcc.modelo.Orientador;
+import br.ifrn.meutcc.modelo.Aluno;
 
-@WebServlet("/ViewOrientadorTema")
-public class ViewOrientadorTema extends HttpServlet {
+@WebServlet("/ViewCandidatouAluno")
+public class ViewCandidatouAluno extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ViewOrientadorTema() {
+    public ViewCandidatouAluno() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
+		int idCandidato = 2; //No banco de Hayssa
 		int idTema = -1;
 		try {
 			idTema = Integer.parseInt(id);
 		} catch (NumberFormatException nfex) {
 			nfex.printStackTrace();
 		}
-		Orientador logic = new Orientador();
-		Orientador orientador = logic.getOrientadorPorTema(idTema);
-		request.setAttribute("orientador", orientador);
-		request.getRequestDispatcher("viewTemaOrientador.jsp").forward(request, response);
+		Aluno logic = new Aluno();
+		boolean aluno = logic.addCandidato(idTema, idCandidato);
+		request.setAttribute("aluno", aluno);
+		request.getRequestDispatcher("viewTemaCandidatouAluno.jsp").forward(request, response);
 	}
 
 }

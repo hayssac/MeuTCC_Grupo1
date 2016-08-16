@@ -9,6 +9,8 @@ public class Tema {
 	private int id;
 	private String titulo;
 	private String descricao;
+//	private int idCurso;
+//	private int idOrientador;
 	private TemaDAO dao;
 
 	public Tema() {
@@ -33,6 +35,14 @@ public class Tema {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+	//inseridos após cadastro do Tema
+//	public void setCurso(int idCurso) {
+//		this.idCurso = idCurso;
+//	}
+//	public void setOrientador (int idOrientador) {
+//		this.idOrientador = idOrientador;
+//	}
+	//
 	public List<Tema> listTemas(int idCurso) {
 		return dao.listTemas(idCurso);
 	}

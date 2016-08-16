@@ -69,5 +69,9 @@ public class TemaDAOMySQL implements TemaDAO {
 		}
 		return null;
 	}
+	
+	public void setTema() {
+		
+	}
 
 }
