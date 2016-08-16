@@ -27,7 +27,7 @@ public class ViewPerfilOrientador extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		request.getRequestDispatcher("cadastrarTema.jsp").forward(request, response);
+		request.getRequestDispatcher("error404.jsp").forward(request, response);
 	}
 
 	/**
