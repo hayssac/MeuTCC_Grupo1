@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.ifrn.meutcc.modelo.Aluno;
 
-@WebServlet("/ViewCandidaturas")
-public class ViewCandidaturas extends HttpServlet {
+@WebServlet("/ViewAlunoCandidatou")
+public class ViewAlunoCandidatou extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ViewCandidaturas() {
+    public ViewAlunoCandidatou() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
+		int idCandidato = 2;
 		int idTema = -1;
 		try {
 			idTema = Integer.parseInt(id);
@@ -26,9 +27,9 @@ public class ViewCandidaturas extends HttpServlet {
 			nfex.printStackTrace();
 		}
 		Aluno logic = new Aluno();
-		int aluno = logic.countCandidatos(idTema);
+		boolean aluno = logic.addCandidato(idTema, idCandidato);
 		request.setAttribute("aluno", aluno);
-		request.getRequestDispatcher("viewTemaCandidaturas.jsp").forward(request, response);
+		request.getRequestDispatcher("viewAluno.jsp").forward(request, response);
 	}
 
 }

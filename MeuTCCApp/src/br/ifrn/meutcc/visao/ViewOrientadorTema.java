@@ -28,7 +28,7 @@ public class ViewOrientadorTema extends HttpServlet {
 		Orientador logic = new Orientador();
 		Orientador orientador = logic.getOrientadorPorTema(idTema);
 		request.setAttribute("orientador", orientador);
-		request.getRequestDispatcher("viewTemaOrientador.jsp").forward(request, response);
+		request.getRequestDispatcher("viewOrientador.jsp").forward(request, response);
 	}
 
 }

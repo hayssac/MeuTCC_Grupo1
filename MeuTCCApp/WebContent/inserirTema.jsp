@@ -13,21 +13,18 @@
 	<nav class="light-blue cyan darken-4" role="navigation">
     	<div class="nav-wrapper container">
     		<a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
-    		<ul id="nav-mobile" class="right hide-on-med-and-down">
-    			<li><a href="/MeuTCC/ViewTemaCadastro">Cadastrar novo tema</a></li>
-    		</ul>
     	</div>
 	</nav>
 	<div class="container quadro">
 	<h3 class="header center grey-text">Cadastrar Tema</h3>
 	<div class="row">
 		<div class="col s8 offset-s2">
-			<form>
+			<%if(request.getAttribute("error") != null){
+			out.println("<script>alert(\"Você atingiu o limite de temas que pode cadastrar.\")</script>");
+			}
+			%>
+			<form action='InserirTema' method='POST'>
 				<div class="row">
-					<div class="input-field">
-						<input id="id" name="id" data-success="Válido" data-wrong="Digite um número" type="number" class="validate" required />
-						<label>ID</label>
-					</div>
 					<div class="input-field">
 						<input id="titulo" name="titulo" data-success="Válido" data-wrong="Digite corretamente" type="text" class="validate" required />
 						<label>Título</label>
@@ -37,16 +34,15 @@
 						<label>Descrição</label>
 					</div>
 					<div class="input-field">
-						<input id="idcurso" name="idcurso" data-success="Válido" data-wrong="Digite um número" type="number" class="validate" required />
-						<label>Curso</label>
-    				</div>
-					<div class="input-field">
-						<input id="idorientador" name="idorientador" data-success="Válido" data-wrong="Digite um número" type="number" class="validate" required/>
-						<label>Orientador</label>
-					</div>
-					<div class="input-field">
-						<a class="waves-effect waves-light btn" type="submit">Enviar</a>
-					</div>
+						<select class="browser-default" name="idCurso">
+    						<option value="" disabled selected>Escolha o curso:</option>
+    						<option value="3">TADS</option>
+    						<option value="4">Redes</option> <!-- O valor do value tem que bater no banco -->
+  						</select>
+  					</div>
+  					<div class="input-field">
+  						<button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button>
+  					</div>
 				</div>
 			</form>
 		</div>

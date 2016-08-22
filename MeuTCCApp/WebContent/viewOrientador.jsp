@@ -6,12 +6,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Orientador Tema</title>
 <link href="css/index.css" rel="stylesheet" />
-<link href="css/materialize.css" rel="stylesheet" />
+<link href="css/materialize.min.css" rel="stylesheet" />
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
 	<nav class="light-blue cyan darken-4" role="navigation">
-    	<div class="nav-wrapper container"><a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
+    	<div class="nav-wrapper container">
+    		<a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
+    		<ul id="nav-mobile" class="right hide-on-med-and-down">
+    			<li><a href="inserirTema.jsp">Cadastrar novo tema</a></li>
+    		</ul>
     	</div>
 	</nav>
 	<div class="container quadro">
@@ -29,6 +33,6 @@
 	}
 	%>
 	</div>
-<script src="js/materialize.js" type="text/javascript"></script>
+<script src="js/materialize.min.js" type="text/javascript"></script>
 </body>
 </html>

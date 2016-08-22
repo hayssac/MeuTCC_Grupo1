@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 import br.ifrn.meutcc.modelo.Orientador;
+import br.ifrn.meutcc.modelo.Tema;
 
 public class OrientadorDAOMySQL implements OrientadorDAO {
 
@@ -43,6 +44,31 @@ public class OrientadorDAOMySQL implements OrientadorDAO {
 		}
 		return null;
 	}
+	
+	public String inserir(Tema tema){
+		String retorno = "falha";
+		int idOrientador = 3;
+		Connection conn = conexao.getConexaoBD();
+		if(conn != null){
+			
+			if(Orientador.contador > 0){
+				try {
+					Statement stmt = conn.createStatement();
+					stmt.execute("insert into tema (titulo, descricao, idCurso, idOrientador) "
+							+ "values ('"+tema.getTitulo()+"', '"+tema.getDescricao()+"', '"+tema.getidCurso()+"', '"+idOrientador+"')");
+					retorno = "sucesso";
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+			Orientador.contador --;
+			System.out.println(Orientador.contador);
+		}
+		
+		return retorno;
+	}
+	
 
+	
 	
 }

@@ -22,7 +22,7 @@ public class ListTemas extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Recuperar o identificador do curso
 		String curso = request.getParameter("idCurso");
-		int idCurso = 3; //No caso do banco de Hayssa, que estava com registros antigos
+		int idCurso = 3;
 		try {
 			idCurso = Integer.parseInt(curso);
 		} catch (NumberFormatException e) {
@@ -32,5 +32,6 @@ public class ListTemas extends HttpServlet {
 		List<Tema> temas = logic.listTemas(idCurso);
 		request.setAttribute("temas", temas);
 		request.getRequestDispatcher("listaTemas.jsp").forward(request, response);
+		
 	}
 }

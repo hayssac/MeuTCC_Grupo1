@@ -17,3 +17,11 @@ body {
 .quadro ul li a:hover {
 	background-color: #EF9A9A !important;
 }
+
+table {
+	border: 1px solid #d0d0d0;
+}
+
+table tr td a {
+	margin-bottom: 10px;
+}
