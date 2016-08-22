@@ -11,6 +11,7 @@ public class Tema {
 	private String descricao;
 	private int idCurso;
 	private int idOrientador;
+	private String nomeOrientador;
 	private TemaDAO dao;
 
 	public Tema() {
@@ -46,7 +47,13 @@ public class Tema {
 	}
 	public void setidOrientador(int idOrientador) {
 		this.idOrientador = idOrientador;
-	}	
+	}
+	public void setNomeOrientador(String nomeOrientador) {
+		this.nomeOrientador = nomeOrientador;
+	}
+	public String getNomeOrientador(){
+		return nomeOrientador;
+	}
 	public List<Tema> listTemas(int idCurso) {
 		return dao.listTemas(idCurso);
 	}

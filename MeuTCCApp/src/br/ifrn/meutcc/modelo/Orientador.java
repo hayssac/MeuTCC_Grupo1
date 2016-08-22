@@ -14,8 +14,12 @@ public class Orientador {
 		dao = FabricaDAO.getInstancia("mysql").createOrientadorDAO();
 	}
 	
-	public void setContador(int value){contador=value;}
-	public int getContador(){return contador;}
+	public void setContador(int value){
+		contador=value;
+	}
+	public int getContador(){
+		return contador;
+	}
 	
 	public int getId() {
 		return id;

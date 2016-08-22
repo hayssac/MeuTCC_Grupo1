@@ -32,13 +32,14 @@ public class TemaDAOMySQL implements TemaDAO {
 		if (conn != null) {
 			try {
 				Statement stListaTema = conn.createStatement();
-				ResultSet rsTemas = stListaTema.executeQuery("SELECT * FROM Tema as t WHERE t.idCurso = "+idCurso);
+				ResultSet rsTemas = stListaTema.executeQuery("SELECT * FROM tema as t INNER JOIN orientador as o ON t.idOrientador = o.id AND t.idCurso ="+idCurso);
 				List<Tema> temas = new ArrayList<Tema>();
 				while (rsTemas.next()) {
 					Tema tema = new Tema();
 					tema.setId(rsTemas.getInt("id"));
 					tema.setTitulo(rsTemas.getString("titulo"));
 					tema.setDescricao(rsTemas.getString("descricao"));
+					tema.setNomeOrientador(rsTemas.getString("nome"));
 					temas.add(tema);
 				}
 				return temas;
