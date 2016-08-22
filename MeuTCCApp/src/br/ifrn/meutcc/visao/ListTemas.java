@@ -22,7 +22,7 @@ public class ListTemas extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// Recuperar o identificador do curso
 		String curso = request.getParameter("idCurso");
-		int idCurso = 1;
+		int idCurso = 3;
 		try {
 			idCurso = Integer.parseInt(curso);
 		} catch (NumberFormatException e) {

@@ -19,7 +19,7 @@ public class ViewAluno extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		int idCandidato = 3;
+		int idCandidato = 2;
 		int idTema = -1;
 		try {
 			idTema = Integer.parseInt(id);

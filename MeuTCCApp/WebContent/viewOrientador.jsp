@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-	<nav class="light-blue cyan darken-4" role="navigation">
-    	<div class="nav-wrapper container"><a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
+	<nav class="light-blue lighten-1" role="navigation">
+    	<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">MeuTCC</a>
     	</div>
 	</nav>
 	<div class="container quadro">
