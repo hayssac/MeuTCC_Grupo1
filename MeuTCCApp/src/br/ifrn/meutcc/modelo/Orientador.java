@@ -3,7 +3,7 @@ package br.ifrn.meutcc.modelo;
 import br.ifrn.meutcc.persistencia.FabricaDAO;
 import br.ifrn.meutcc.persistencia.OrientadorDAO;
 
-public class Orientador implements AcaoObserver {
+public class Orientador implements Observer {
 	private int id;
 	private String nome;
 	private OrientadorDAO dao;
@@ -47,12 +47,9 @@ public class Orientador implements AcaoObserver {
 	}
 
 	@Override
-	public void notificaAlteracao(Aluno aluno) {
-		System.out.println("Orientador " + this.nome + " sendo notificado.");
-		System.out.println(" O status teve seu valor alterado para : " + aluno.getStatus());
-		
+	public void update(Aluno status) {
+		System.out.println("O observador " +this.nome+ " foi notificado da alteracao do status para " +status.getStatus());		
 	}
-
 	
 	
 

@@ -32,9 +32,8 @@ public class ViewAlunoCandidatou extends HttpServlet {
 		Orientador orientador = a.getOrientadorPorTema(idTema);	
 		
 		Aluno logic = new Aluno();
-		logic.registraInteressado(orientador);
+		logic.registraObserver(orientador);
 		boolean aluno = logic.addCandidato(idTema, idCandidato);
-		logic.getStatus();
 		
 		request.setAttribute("candidatou", logic.getStatus());
 		request.setAttribute("aluno", aluno);
