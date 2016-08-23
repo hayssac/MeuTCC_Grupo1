@@ -10,12 +10,20 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-	<nav class="light-blue lighten-1" role="navigation">
-    	<div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">MeuTCC</a>
+	<nav class="light-blue cyan darken-4" role="navigation">
+    	<div class="nav-wrapper container">
+    		<a id="logo-container" href="/MeuTCC/ListTemas" class="brand-logo">MeuTCC</a>
+    		<ul id="nav-mobile" class="right hide-on-med-and-down">
+    			<li><a href="inserirTema.jsp">Cadastrar novo tema</a></li>
+    		</ul>
     	</div>
 	</nav>
 	<div class="container quadro">
 	<%
+	if(request.getAttribute("candidatou") != " "){
+		out.println("<script>alert(\"O status do objeto alterou!\")</script>");
+	}
+
 	boolean aluno = (boolean) request.getAttribute("aluno");
 	if (aluno == true) {
 		out.println("<div class=\"row\"> <div class=\"col s6 push-s3\"> <div class=\"card-panel teal lighten-2 hoverable center\"> <i class=\"large material-icons white-text\">done</i> <span class=\"white-text\"> <p> Inserido! </p> </span> </div> </div> </div>");

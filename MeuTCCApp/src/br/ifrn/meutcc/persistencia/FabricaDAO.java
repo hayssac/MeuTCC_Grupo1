@@ -3,7 +3,6 @@ package br.ifrn.meutcc.persistencia;
 public abstract class FabricaDAO {
 	
 	public abstract TemaDAO createTemaDAO();
-	public abstract CandidatoDAO createCadidatoDAO();
 	public abstract AlunoDAO createAlunoDAO();
 	public abstract OrientadorDAO createOrientadorDAO();
 	

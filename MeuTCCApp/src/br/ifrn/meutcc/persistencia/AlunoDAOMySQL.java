@@ -1,11 +1,11 @@
 package br.ifrn.meutcc.persistencia;
 
+import br.ifrn.meutcc.modelo.Aluno;
+
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
-import br.ifrn.meutcc.modelo.Aluno;
 
 public class AlunoDAOMySQL implements AlunoDAO {
 	
@@ -25,7 +25,7 @@ public class AlunoDAOMySQL implements AlunoDAO {
 	}
 
 	public boolean addCandidato(int idTema, int idCandidato){
-		Aluno aluno = new Aluno();
+		Aluno aluno = new Aluno();	
 		Connection conn = conexao.getConexaoBD();
 		boolean result = false;
 		

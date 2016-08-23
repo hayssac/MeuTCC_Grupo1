@@ -1,7 +1,6 @@
 package br.ifrn.meutcc.visao;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,11 +10,11 @@ import javax.servlet.http.HttpServletResponse;
 import br.ifrn.meutcc.modelo.Aluno;
 import br.ifrn.meutcc.modelo.Orientador;
 
-@WebServlet("/ViewAluno")
-public class ViewAluno extends HttpServlet {
+@WebServlet("/ViewAlunoCandidatou")
+public class ViewAlunoCandidatou extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ViewAluno() {
+    public ViewAlunoCandidatou() {
         super();
     }
 
@@ -33,9 +32,10 @@ public class ViewAluno extends HttpServlet {
 		Orientador orientador = a.getOrientadorPorTema(idTema);	
 		
 		Aluno logic = new Aluno();
-		logic.registraInteressado(orientador);
+		logic.registraObserver(orientador);
 		boolean aluno = logic.addCandidato(idTema, idCandidato);
 		
+		request.setAttribute("candidatou", logic.getStatus());
 		request.setAttribute("aluno", aluno);
 		request.getRequestDispatcher("viewAluno.jsp").forward(request, response);
 	}

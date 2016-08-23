@@ -1,7 +1,6 @@
 package br.ifrn.meutcc.visao;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -41,11 +40,8 @@ public class InserirTema extends HttpServlet {
 		if(retorno.equals("sucesso")){
 			response.sendRedirect("ListTemas");
 		} else {
-			PrintWriter out = response.getWriter();
-			out.println("<html>");
-			out.println("<h3>Não foi possivel inserir o Tema!</h3>");
-			out.println("<a href='ListTemas'>Voltar</a>");
-			out.println("</html>");
+			request.setAttribute("error", "error");
+			request.getRequestDispatcher("inserirTema.jsp").forward(request, response);
 		}	
 
 		

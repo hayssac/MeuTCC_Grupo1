@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import br.ifrn.meutcc.modelo.Aluno;
 
-@WebServlet("/ViewCandidaturas")
-public class ViewCandidaturas extends HttpServlet {
+@WebServlet("/ViewTemaCandidaturas")
+public class ViewTemaCandidaturas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ViewCandidaturas() {
+    public ViewTemaCandidaturas() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");	
+		String id = request.getParameter("id");
 		int idTema = -1;
 		try {
 			idTema = Integer.parseInt(id);

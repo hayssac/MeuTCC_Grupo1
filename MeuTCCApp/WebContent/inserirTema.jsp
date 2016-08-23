@@ -19,6 +19,10 @@
 	<h3 class="header center grey-text">Cadastrar Tema</h3>
 	<div class="row">
 		<div class="col s8 offset-s2">
+			<%if(request.getAttribute("error") != null){
+			out.println("<script>alert(\"Você atingiu o limite de temas que pode cadastrar.\")</script>");
+			}
+			%>
 			<form action='InserirTema' method='POST'>
 				<div class="row">
 					<div class="input-field">
@@ -36,12 +40,13 @@
     						<option value="4">Redes</option> <!-- O valor do value tem que bater no banco -->
   						</select>
   					</div>
-			        <input type="submit" value="enviar">
+  					<div class="input-field">
+  						<button class="btn waves-effect waves-light" type="submit" name="action">Enviar</button>
+  					</div>
 				</div>
 			</form>
 		</div>
 	</div>
-
 	</div>
 
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

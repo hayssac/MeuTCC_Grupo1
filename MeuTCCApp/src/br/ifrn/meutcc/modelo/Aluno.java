@@ -1,41 +1,29 @@
 package br.ifrn.meutcc.modelo;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
 
 import br.ifrn.meutcc.persistencia.AlunoDAO;
 import br.ifrn.meutcc.persistencia.FabricaDAO;
 
-public class Aluno {
+public class Aluno implements Assunto {
 	private AlunoDAO dao;
 	private static boolean status;
-	private static Set<AcaoObserver> interessados = new HashSet<AcaoObserver>();
+	private static ArrayList<Observer> observers = new ArrayList<Observer>();
 	
 	public Aluno() {
 		super();
 		dao = FabricaDAO.getInstancia("mysql").createAlunoDAO();
 	}
 	
-	//registra interessados
-	public void registraInteressado(AcaoObserver interessado){
-		interessados.add(interessado);
-	}
-	//cancela interesse
-	public void cancelaInteresse(AcaoObserver interessado){
-		interessados.remove(interessado);
-	}
-    
-	public void setStatus(boolean valor) {
+	public void setStatus(boolean valor){
 		status = valor;
-		for(AcaoObserver interessado : interessados){
-			interessado.notificaAlteracao(this);
-		}
-	} 
+		notificaObservers();
+	}
 	
 	public boolean getStatus(){
 		return status;
 	}
-
+	
 	public boolean addCandidato(int idTema, int idCandidato){
 		return dao.addCandidato(idTema, idCandidato);
 	}
@@ -43,5 +31,34 @@ public class Aluno {
 	public int countCandidatos(int idTema) {
 		return dao.countCandidatos(idTema);
 	}
+
 	
+	//metodos dos observadores
+	public ArrayList<Observer> getObservers() {   
+        return observers;   
+    }
+	
+    public void setObservers(ArrayList<Observer> observers) {   
+        Aluno.observers = observers;   
+    }
+    
+	@Override
+	public void registraObserver(Observer observer) {
+		observers.add(observer);
+	}
+
+	@Override
+	public void removeObserver(Observer observer) {
+		observers.remove(observer);		
+	}
+
+	@Override
+	public void notificaObservers() {
+		System.out.println("Todos os observadores serao notificados!");
+		for (Observer ob : observers) {
+			ob.update(this);
+		}		
+	}
+
+
 }

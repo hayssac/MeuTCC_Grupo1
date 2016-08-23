@@ -32,5 +32,6 @@ public class ListTemas extends HttpServlet {
 		List<Tema> temas = logic.listTemas(idCurso);
 		request.setAttribute("temas", temas);
 		request.getRequestDispatcher("listaTemas.jsp").forward(request, response);
+		
 	}
 }
