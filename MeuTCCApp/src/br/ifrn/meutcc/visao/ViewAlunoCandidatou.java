@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ifrn.meutcc.modelo.Aluno;
+import br.ifrn.meutcc.modelo.Orientador;
 
 @WebServlet("/ViewAlunoCandidatou")
 public class ViewAlunoCandidatou extends HttpServlet {
@@ -26,8 +27,16 @@ public class ViewAlunoCandidatou extends HttpServlet {
 		} catch (NumberFormatException nfex) {
 			nfex.printStackTrace();
 		}
+		
+		Orientador a = new Orientador();
+		Orientador orientador = a.getOrientadorPorTema(idTema);	
+		
 		Aluno logic = new Aluno();
+		logic.registraInteressado(orientador);
 		boolean aluno = logic.addCandidato(idTema, idCandidato);
+		logic.getStatus();
+		
+		request.setAttribute("candidatou", logic.getStatus());
 		request.setAttribute("aluno", aluno);
 		request.getRequestDispatcher("viewAluno.jsp").forward(request, response);
 	}

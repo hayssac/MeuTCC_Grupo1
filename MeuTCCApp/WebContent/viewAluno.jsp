@@ -20,6 +20,10 @@
 	</nav>
 	<div class="container quadro">
 	<%
+	if(request.getAttribute("candidatou") != " "){
+		out.println("<script>alert(\"O status do objeto alterou!\")</script>");
+	}
+
 	boolean aluno = (boolean) request.getAttribute("aluno");
 	if (aluno == true) {
 		out.println("<div class=\"row\"> <div class=\"col s6 push-s3\"> <div class=\"card-panel teal lighten-2 hoverable center\"> <i class=\"large material-icons white-text\">done</i> <span class=\"white-text\"> <p> Inserido! </p> </span> </div> </div> </div>");

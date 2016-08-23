@@ -21,12 +21,6 @@ public class FabricaMySQL extends FabricaDAO {
 	}
 
 	@Override
-	public CandidatoDAO createCadidatoDAO() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
 	public OrientadorDAO createOrientadorDAO() {
 		return OrientadorDAOMySQL.getInstancia();
 	}

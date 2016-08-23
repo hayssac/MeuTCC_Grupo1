@@ -3,7 +3,7 @@ package br.ifrn.meutcc.modelo;
 import br.ifrn.meutcc.persistencia.FabricaDAO;
 import br.ifrn.meutcc.persistencia.OrientadorDAO;
 
-public class Orientador {
+public class Orientador implements AcaoObserver {
 	private int id;
 	private String nome;
 	private OrientadorDAO dao;
@@ -15,9 +15,10 @@ public class Orientador {
 	}
 	
 	public void setContador(int value){
-		contador=value;
+		contador = value;
 	}
-	public int getContador(){
+	
+	public int getContador(){ 
 		return contador;
 	}
 	
@@ -44,5 +45,15 @@ public class Orientador {
 	public String inserir(Tema tema) {
 		return dao.inserir(tema);
 	}
+
+	@Override
+	public void notificaAlteracao(Aluno aluno) {
+		System.out.println("Orientador " + this.nome + " sendo notificado.");
+		System.out.println(" O status teve seu valor alterado para : " + aluno.getStatus());
+		
+	}
+
+	
+	
 
 }
