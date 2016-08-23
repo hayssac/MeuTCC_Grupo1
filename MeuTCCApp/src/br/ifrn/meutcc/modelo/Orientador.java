@@ -1,9 +1,16 @@
 package br.ifrn.meutcc.modelo;
 
+import java.io.Console;
+import java.io.PrintStream;
+import java.util.logging.ConsoleHandler;
+
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 import br.ifrn.meutcc.persistencia.FabricaDAO;
 import br.ifrn.meutcc.persistencia.OrientadorDAO;
 
-public class Orientador {
+public class Orientador implements AcaoObserver {
 	private int id;
 	private String nome;
 	private OrientadorDAO dao;
@@ -14,8 +21,13 @@ public class Orientador {
 		dao = FabricaDAO.getInstancia("mysql").createOrientadorDAO();
 	}
 	
-	public void setContador(int value){contador=value;}
-	public int getContador(){return contador;}
+	public void setContador(int value){
+		contador = value;
+	}
+	
+	public int getContador(){ 
+		return contador;
+	}
 	
 	public int getId() {
 		return id;
@@ -40,5 +52,14 @@ public class Orientador {
 	public String inserir(Tema tema) {
 		return dao.inserir(tema);
 	}
+
+	@Override
+	public void notificaAlteracao(Aluno aluno) {
+		System.out.println("Orientador " + this.nome + " sendo notificado.");
+		System.out.println(" O status teve seu valor alterado para : " + aluno.getStatus());
+	}
+
+	
+	
 
 }

@@ -26,7 +26,7 @@
 			if (temas != null && !temas.isEmpty()) {
 				for(Tema t: temas) {					
 					out.println("<li class=\"card-panel hoverable\"><a class=\"waves-effect waves-light btn\" href=\"/MeuTCC/ViewTema?id="+t.getId()+
-							"\">["+t.getId()+"] "+t.getTitulo()+"</a> : <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewCandidatouAluno?id="+t.getId()+
+							"\">["+t.getId()+"] "+t.getTitulo()+"</a> : <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewAluno?id="+t.getId()+
 							"\">Candidatar-se</a> <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewCandidaturas?id="+t.getId()+
 							"\">Lista de Candidaturas</a> <a class=\"waves-effect btn-flat\" href=\"/MeuTCC/ViewOrientadorTema?id="+t.getId()+
 							"\">Orientador Tema</a></li>");

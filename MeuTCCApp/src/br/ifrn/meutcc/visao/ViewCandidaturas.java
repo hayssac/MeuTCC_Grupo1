@@ -18,7 +18,7 @@ public class ViewCandidaturas extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String id = request.getParameter("id");
+		String id = request.getParameter("id");	
 		int idTema = -1;
 		try {
 			idTema = Integer.parseInt(id);

@@ -1,6 +1,7 @@
 package br.ifrn.meutcc.visao;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.ifrn.meutcc.modelo.Aluno;
+import br.ifrn.meutcc.modelo.Orientador;
 
 @WebServlet("/ViewAluno")
 public class ViewAluno extends HttpServlet {
@@ -26,8 +28,14 @@ public class ViewAluno extends HttpServlet {
 		} catch (NumberFormatException nfex) {
 			nfex.printStackTrace();
 		}
+		
+		Orientador a = new Orientador();
+		Orientador orientador = a.getOrientadorPorTema(idTema);	
+		
 		Aluno logic = new Aluno();
+		logic.registraInteressado(orientador);
 		boolean aluno = logic.addCandidato(idTema, idCandidato);
+		
 		request.setAttribute("aluno", aluno);
 		request.getRequestDispatcher("viewAluno.jsp").forward(request, response);
 	}

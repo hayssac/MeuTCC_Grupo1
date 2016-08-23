@@ -5,6 +5,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import br.ifrn.meutcc.modelo.Aluno;
+
 public class AlunoDAOMySQL implements AlunoDAO {
 	
 	private static AlunoDAOMySQL instancia = null;
@@ -23,6 +25,7 @@ public class AlunoDAOMySQL implements AlunoDAO {
 	}
 
 	public boolean addCandidato(int idTema, int idCandidato){
+		Aluno aluno = new Aluno();
 		Connection conn = conexao.getConexaoBD();
 		boolean result = false;
 		
@@ -34,6 +37,7 @@ public class AlunoDAOMySQL implements AlunoDAO {
 				
 				if(rsAluno != 0){
 					result = true;
+					aluno.setStatus(result);
 				} else {
 					result = false;
 				}
