@@ -20,21 +20,21 @@
 	<div class="row">
 		<div class="col s8 offset-s2">
 			<%if(request.getAttribute("error") != null){
-			out.println("<script>alert(\"Você atingiu o limite de temas que pode cadastrar.\")</script>");
+			out.println("<script>alert(\"Vocï¿½ atingiu o limite de temas que pode cadastrar.\")</script>");
 			}
 			%>
 			<form action='InserirTema' method='POST'>
 				<div class="row">
 					<div class="input-field">
-						<input id="titulo" name="titulo" data-success="Válido" data-wrong="Digite corretamente" type="text" class="validate" required />
-						<label>Título</label>
+						<input id="titulo" name="titulo" data-success="Vï¿½lido" data-wrong="Digite corretamente" type="text" class="validate" required />
+						<label>Tï¿½tulo</label>
 					</div>
 					<div class="input-field">
-						<textarea id="descricao" name="descricao" data-success="Válido" data-wrong="Digite corretamente" class="materialize-textarea" required></textarea>
-						<label>Descrição</label>
+						<textarea id="descricao" name="descricao" data-success="Vï¿½lido" data-wrong="Digite corretamente" class="materialize-textarea" required></textarea>
+						<label>Descriï¿½ï¿½o</label>
 					</div>
 					<div class="input-field">
-						<select class="browser-default" name="idCurso">
+						<select class="browser-default" name="idCurso" required>
     						<option value="" disabled selected>Escolha o curso:</option>
     						<option value="3">TADS</option>
     						<option value="4">Redes</option> <!-- O valor do value tem que bater no banco -->
